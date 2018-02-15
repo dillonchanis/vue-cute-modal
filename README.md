@@ -1,6 +1,8 @@
 # vue-cute-modal
 
-> A simple modal implementation in Vue.
+[![NPM version](https://img.shields.io/npm/v/vue-cute-modal.svg?style=for-the-badge&colorA=6F213F&colorB=F66D9B)](https://www.npmjs.com/package/vue-cute-modal)
+
+A simple and easy to use Modal component for Vue applications.
 
 ## Features
 
