@@ -1,4 +1,4 @@
-import CuteModal from './Modal'
+import CuteModal from './Modal.vue'
 
 const DEFAULT_NAME = 'cute-modal'
 
