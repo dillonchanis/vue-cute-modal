@@ -20,7 +20,11 @@ yarn add vue-cute-modal
 ```
 
 For In-DOM templates include the JS CDN and optionally the CSS in your project:
-CDN: TODO
+
+CDN:
+
+[JS](https://unpkg.com/vue-cute-modal@1.0.2/dist/vue-cute-modal.min.js)
+[CSS](https://unpkg.com/vue-cute-modal@1.0.2/dist/vue-cute-modal.min.css)
 
 ## Usage
 
