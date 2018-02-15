@@ -69,7 +69,8 @@ export default {
     return (
       <transition name={this.transition || transition}>
         {this.isOpen ? (
-          <div class={this.overlayClass || overlay} on-click={this.hide}>
+          <div>
+            <div class={this.overlayClass || overlay} on-click={this.hide} />
             <div class='cute-modal'>
               <div class={this.containerClass || container}
                 style={{ width: (this.width || width), height: (this.height || height) }}>
@@ -106,8 +107,11 @@ $transition: opacity 0.3s ease, transform 0.3s ease;
 
 /* Default Styles */
 .cute-modal {
-  display: table-cell;
-  vertical-align: middle;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 
   &__body {
     height: 100%;
@@ -133,8 +137,7 @@ $transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   &__overlay {
-    display: table;
-    position: fixed;
+    position: absolute;
     z-index: 9990;
     top: 0;
     left: 0;
