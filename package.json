@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "A simple modal implementation in Vue.",
   "author": "Dillon Chanis <dillonchanis92@gmail.com>",
-  "private": true,
+  "license": "MIT",
+  "repository": {
+    "url": "dillonchanis/vue-cute-modal",
+    "type": "git"
+  },
+  "main": "dist/vue-cute-modal.es.js",
+  "unpkg": "dist/vue-cute-modal.min.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -81,5 +87,11 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "keywords": [
+    "vue",
+    "modal",
+    "simple",
+    "cute"
   ]
 }
