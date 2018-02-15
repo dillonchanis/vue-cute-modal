@@ -10,6 +10,9 @@
   },
   "main": "dist/vue-cute-modal.es.js",
   "unpkg": "dist/vue-cute-modal.min.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -19,14 +22,14 @@
     "build": "node_modules/.bin/bili --plugin vue --jsx vue --format es,umd-min"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.11",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
-    "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-jest": "^21.0.2",
     "babel-loader": "^7.1.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
