@@ -24,6 +24,8 @@ CDN: TODO
 
 ## Usage
 
+[![Edit Cute Modal](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/m7p485mwoj)
+
 ### Setup
 
 Include the plugin at the root of your application
