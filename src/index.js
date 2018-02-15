@@ -7,8 +7,9 @@ const DEFAULT_OPTIONS = {
   container: 'cute-modal__container',
   footer: 'cute-modal__footer',
   header: 'cute-modal__header',
+  height: 'auto',
   overlay: 'cute-modal__overlay',
-  transition: 'cm',
+  transition: 'modal',
   width: '600px'
 }
 

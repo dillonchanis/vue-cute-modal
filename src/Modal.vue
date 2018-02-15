@@ -16,6 +16,9 @@ export default {
     headerClass: {
       type: String
     },
+    height: {
+      type: String
+    },
     name: {
       type: String,
       required: true
@@ -52,41 +55,43 @@ export default {
     }
   },
   render (h) {
-    if (!this.isOpen) return
-
     const {
-      transition,
-      overlay,
-      container,
-      header,
       body,
+      container,
       footer,
+      header,
+      height,
+      overlay,
+      transition,
       width
     } = this.$cuteModal.options()
 
     return (
       <transition name={this.transition || transition}>
-        <div class='cute-modal'>
-          <div class={this.overlayClass || overlay} on-click={this.hide} />
-          <div class={this.containerClass || container}
-            style={{ width: this.width || width }}>
-            {
-              this.$slots.header
-                ? (<header class={this.headerClass || header}>{this.$slots.header}</header>)
-                : null
-            }
+        {this.isOpen ? (
+          <div class={this.overlayClass || overlay} on-click={this.hide}>
+            <div class='cute-modal'>
+              <div class={this.containerClass || container}
+                style={{ width: (this.width || width), height: (this.height || height) }}>
+                {
+                  this.$slots.header
+                    ? (<header class={this.headerClass || header}>{this.$slots.header}</header>)
+                    : null
+                }
 
-            <div class={this.bodyClass || body}>
-              {this.$slots.default}
+                <div class={this.bodyClass || body}>
+                  {this.$slots.default}
+                </div>
+
+                {
+                  this.$slots.footer
+                    ? (<footer class={this.footerClass || footer}>{this.$slots.footer}</footer>)
+                    : null
+                }
+              </div>
             </div>
-
-            {
-              this.$slots.footer
-                ? (<footer class={this.footerClass || footer}>{this.$slots.footer}</footer>)
-                : null
-            }
           </div>
-        </div>
+        ) : null}
       </transition>
     )
   }
@@ -94,40 +99,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* Variables */
 $padding: 0.5rem 1rem;
 $border: 1px solid #ccc;
+$transition: opacity 0.3s ease, transform 0.3s ease;
 
 /* Default Styles */
-.cute-modal,
-.cute-modal__overlay {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  right: 0;
-  bottom: 0;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-}
-
 .cute-modal {
-  overflow: auto;
+  display: table-cell;
+  vertical-align: middle;
 
   &__body {
+    height: 100%;
     padding: 0.75rem 1rem;
     background-color: #f1f5f8;
   }
 
   &__container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    margin: 0 auto;
     background-color: #fff;
-    border: 1px solid #dae1e7;
     border-radius: 4px;
-    transform: translate(-50%, -50%);
     box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
-    z-index: 9999;
+    transition: all 0.3s ease;
   }
 
   &__footer {
@@ -140,23 +133,29 @@ $border: 1px solid #ccc;
   }
 
   &__overlay {
-    background-color: #333;
-    opacity: 0.25;
+    display: table;
+    position: fixed;
     z-index: 9990;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
   }
 }
 
 /* Default Transition */
-.cm-enter {
+.modal-enter {
   opacity: 0;
 }
 
-.cm-leave-active {
+.modal-leave-active {
   opacity: 0;
 }
 
-.cm-enter .cute-modal,
-.cm-leave-active .cute-modal {
+.modal-enter .cute-modal__container,
+.modal-leave-active .cute-modal__container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
