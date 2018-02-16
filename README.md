@@ -23,8 +23,8 @@ For In-DOM templates include the JS CDN and optionally the CSS in your project:
 
 CDN:
 
-[JS](https://unpkg.com/vue-cute-modal@1.0.2/dist/vue-cute-modal.min.js)
-[CSS](https://unpkg.com/vue-cute-modal@1.0.2/dist/vue-cute-modal.min.css)
+[JS](https://unpkg.com/vue-cute-modal@1.0.4/dist/vue-cute-modal.min.js)
+[CSS](https://unpkg.com/vue-cute-modal@1.0.4/dist/vue-cute-modal.min.css)
 
 ## Usage
 
