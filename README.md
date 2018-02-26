@@ -28,7 +28,7 @@ CDN:
 
 ## Usage
 
-[![Edit Cute Modal](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/m7p485mwoj)
+[![Edit Cute Modal](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/rw58r1w0v4)
 
 ### Setup
 
