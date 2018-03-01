@@ -165,6 +165,18 @@ this.$cuteModal.open(/* modal name */)
 this.$cuteModal.hide(/* modal name */)
 ```
 
+In 1.1 a built in hide method is made available within the header and footer slots. It will be available on the `slot-scope` as a method named `$hide`. It takes no parameters.
+
+```html
+<cute-modal name="myModal">
+  Some content
+
+  <template slot="footer" slot-scope="{ $hide }">
+    <button @click="$hide">Hide Me</button>
+  </template>
+</cute-modal>
+```
+
 
 ## Development Setup
 
