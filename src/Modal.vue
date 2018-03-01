@@ -42,7 +42,7 @@ export default {
     CuteModal.event.$on('toggle', this.toggle)
   },
   methods: {
-    hide (name) {
+    hide () {
       this.$emit('cute:hide')
       this.isOpen = false
     },
@@ -85,8 +85,8 @@ export default {
                 </div>
 
                 {
-                  this.$slots.footer
-                    ? (<footer class={this.footerClass || footer}>{this.$slots.footer}</footer>)
+                  this.$scopedSlots.footer
+                    ? (<footer class={this.footerClass || footer}>{this.$scopedSlots.footer({ $hide: this.hide })}</footer>)
                     : null
                 }
               </div>
