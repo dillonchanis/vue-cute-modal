@@ -42,7 +42,7 @@ export default {
     CuteModal.event.$on('toggle', this.toggle)
   },
   methods: {
-    hide (name) {
+    hide () {
       this.$emit('cute:hide')
       this.isOpen = false
     },
@@ -75,8 +75,8 @@ export default {
               <div class={this.containerClass || container}
                 style={{ width: (this.width || width), height: (this.height || height) }}>
                 {
-                  this.$slots.header
-                    ? (<header class={this.headerClass || header}>{this.$slots.header}</header>)
+                  this.$scopedSlots.header
+                    ? (<header class={this.headerClass || header}>{this.$scopedSlots.header({ $hide: this.hide })}</header>)
                     : null
                 }
 
@@ -85,8 +85,8 @@ export default {
                 </div>
 
                 {
-                  this.$slots.footer
-                    ? (<footer class={this.footerClass || footer}>{this.$slots.footer}</footer>)
+                  this.$scopedSlots.footer
+                    ? (<footer class={this.footerClass || footer}>{this.$scopedSlots.footer({ $hide: this.hide })}</footer>)
                     : null
                 }
               </div>
