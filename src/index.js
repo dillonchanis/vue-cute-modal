@@ -10,7 +10,9 @@ const DEFAULT_OPTIONS = {
   height: 'auto',
   overlay: 'cute-modal__overlay',
   transition: 'modal',
-  width: '600px'
+  width: '600px',
+  onOpen: null,
+  onClose: null
 }
 
 const Plugin = {
@@ -38,10 +40,6 @@ const Plugin = {
 
     Vue.component(name, CuteModal)
   }
-}
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(Plugin)
 }
 
 export default Plugin

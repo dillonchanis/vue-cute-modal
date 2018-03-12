@@ -45,12 +45,25 @@ export default {
     hide () {
       this.$emit('cute:hide')
       this.isOpen = false
+      this.triggerEvents()
     },
-
     toggle (name) {
       if (this.name === name) {
         this.$emit('cute:toggle')
         this.isOpen = !this.isOpen
+
+        this.triggerEvents()
+      }
+    },
+    triggerEvents () {
+      const { onClose, onOpen } = this.$cuteModal.options()
+
+      if (this.isOpen && onOpen) {
+        onOpen()
+      }
+
+      if (!this.isOpen && onClose) {
+        onClose()
       }
     }
   },
@@ -69,9 +82,9 @@ export default {
     return (
       <transition name={this.transition || transition}>
         {this.isOpen ? (
-          <div>
+          <div class="modal-base">
             <div class={this.overlayClass || overlay} on-click={this.hide} />
-            <div class='cute-modal'>
+            <div class='cute-modal' role='dialog'>
               <div class={this.containerClass || container}
                 style={{ width: (this.width || width), height: (this.height || height) }}>
                 {
@@ -100,18 +113,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* Variables */
 $padding: 0.5rem 1rem;
 $border: 1px solid #ccc;
 $transition: opacity 0.3s ease, transform 0.3s ease;
 
-/* Default Styles */
+.modal-base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .cute-modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 9999;
+  box-sizing: border-box;
 
   &__body {
     height: 100%;
