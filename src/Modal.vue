@@ -84,7 +84,7 @@ export default {
         {this.isOpen ? (
           <div class="modal-base">
             <div class={this.overlayClass || overlay} on-click={this.hide} />
-            <div class='cute-modal'>
+            <div class='cute-modal' role='dialog'>
               <div class={this.containerClass || container}
                 style={{ width: (this.width || width), height: (this.height || height) }}>
                 {
