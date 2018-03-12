@@ -42,8 +42,4 @@ const Plugin = {
   }
 }
 
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(Plugin)
-}
-
 export default Plugin
