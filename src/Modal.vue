@@ -45,13 +45,25 @@ export default {
     hide () {
       this.$emit('cute:hide')
       this.isOpen = false
+      this.triggerEvents()
     },
-
     toggle (name) {
       if (this.name === name) {
         this.$emit('cute:toggle')
         this.isOpen = !this.isOpen
+
+        this.triggerEvents()
       }
+    },
+    triggerEvents () {
+      const { onClose, onOpen } = this.$cuteModal.options()
+
+      if (this.isOpen) {
+        onOpen()
+        return
+      }
+
+      onClose()
     }
   },
   render (h) {
