@@ -105,7 +105,9 @@ const DEFAULT_OPTIONS = {
   height: 'auto',
   overlay: 'cute-modal__overlay',
   transition: 'modal',
-  width: '600px'
+  width: '600px',
+  onOpen: null, // available in 1.1
+  onClose: null // available in 1.1
 }
 
 Vue.use(CuteModal, {
@@ -126,7 +128,15 @@ Vue.use(CuteModal, {
 
   // Set the transition name to use custom Vue transitions
   // This will be set as the transition's name <transition name="...">
-  transition: ''
+  transition: '',
+
+  // Setup callbacks to be executed globally when Modal is closed/opened.
+  onClose: () => {
+    // ...
+  },
+  onOpen: () => {
+    // ...
+  }
 })
 ```
 
@@ -165,6 +175,8 @@ this.$cuteModal.open(/* modal name */)
 this.$cuteModal.hide(/* modal name */)
 ```
 
+### 1.1 Updates
+
 In 1.1 a built in hide method is made available within the header and footer slots. It will be available on the `slot-scope` as a method named `$hide`. It takes no parameters.
 
 ```html
@@ -175,6 +187,19 @@ In 1.1 a built in hide method is made available within the header and footer slo
     <button @click="$hide">Hide Me</button>
   </template>
 </cute-modal>
+```
+
+Futhermore, in 1.1 you can globally set a callback function to be ran when a modal is opened or closed using the `onOpen` and `onClose` keys on your configuration object.
+
+```javascript
+Vue.use({
+  onClose: () => {
+    document.body.style.overflow = 'auto'
+  },
+  onOpen: () => {
+    document.body.style.overflow = 'hidden'
+  }
+})
 ```
 
 
